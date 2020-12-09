@@ -1,0 +1,17 @@
+=IMPORTHTML("https://www.worldometers.info/coronavirus/#countries","Table",1)
+
+
+function Atualizar_Planilha() {  
+      
+  //Variáveis do atualizador de planilhas // 
+  var URL = "https://www.worldometers.info/coronavirus/#countries"; //utiliza a URL da página que será examinada, contendo o protocolo Http.
+  var Tipo_consulta = "Table"; // tipo "list" (lista) ou "table" (tabela), neste trecho depende do tipo de estrutura que utiliza nos dados esperados.  
+  var Tipo_indice = 1; // O índice no qual identifica a tabela ou lista que deverá ser retornada, conforme foi definido no código HTML.  
+  var Horario = new Date(); // trecho utilizado para pegar o horário atual no sistema  
+  var importHTML_function = '=IMPORTHTML("' + URL + '";"'+ Tipo_consulta + '";'+Tipo_indice + ')'; // Insere todos os argumentos dentro da função IMPORTHTML  
+	  
+ // Etapa de  atualização do importHTML  //
+	  
+  SpreadsheetApp.getActiveSpreadsheet().getRange("A1").clearContent(); //exclui as informações da célula A1  
+  SpreadsheetApp.flush(); // atualiza a planilha do google sheets
+  SpreadsheetApp.getActiveSpreadsheet().getRange("A1").setValue(importHTML_function);}// Acrescenta a função importHTML_function na célula A1  
