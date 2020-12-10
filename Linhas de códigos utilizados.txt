@@ -15,3 +15,4 @@ function Atualizar_Planilha() {
   SpreadsheetApp.getActiveSpreadsheet().getRange("A1").clearContent(); //exclui as informações da célula A1  
   SpreadsheetApp.flush(); // atualiza a planilha do google sheets
   SpreadsheetApp.getActiveSpreadsheet().getRange("A1").setValue(importHTML_function);}// Acrescenta a função importHTML_function na célula A1  
+Teste
